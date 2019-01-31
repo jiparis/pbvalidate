@@ -1,5 +1,5 @@
 def _impl(ctx):
-  script = "%s -f %s -m %s -I /,.,vendor/github.com/googleapis/googleapis %s" % (
+  script = "%s -f %s -m %s -I /,. %s" % (
     ctx.files.pbvalidate[0].short_path,
     ctx.files.proto[0].short_path,
     ctx.attr.message,
@@ -17,7 +17,6 @@ def _impl(ctx):
   runfiles = ctx.runfiles(files = ctx.files.src 
                                 + ctx.files.proto
                                 + ctx.files.deps
-                                + ctx.files.googleapi
                                 + ctx.files.pbvalidate)
   return [DefaultInfo(runfiles = runfiles)]
 
@@ -29,9 +28,6 @@ pbvalidate_test = rule(
     "proto": attr.label(allow_files = True),
     "deps": attr.label_list(allow_files = True),
     "message": attr.string(),
-
-    # special case for vendored googleapis library; added to the search path
-    "googleapi": attr.label(default = Label("//vendor/github.com/googleapis/googleapis:protos")),
 
     # validation tool
     "pbvalidate": attr.label(

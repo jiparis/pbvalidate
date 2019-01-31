@@ -17,8 +17,8 @@ def _impl(ctx):
   runfiles = ctx.runfiles(files = ctx.files.src 
                                 + ctx.files.proto
                                 + ctx.files.deps
-                                + ctx.files._googleapi
-                                + ctx.files._pbvalidate)
+                                + ctx.files.googleapi
+                                + ctx.files.pbvalidate)
   return [DefaultInfo(runfiles = runfiles)]
 
 pbvalidate_test = rule(
@@ -31,10 +31,10 @@ pbvalidate_test = rule(
     "message": attr.string(),
 
     # special case for vendored googleapis library; added to the search path
-    "_googleapi": attr.label(default = Label("//vendor/github.com/googleapis/googleapis:protos")),
+    "googleapi": attr.label(default = Label("//vendor/github.com/googleapis/googleapis:protos")),
 
     # validation tool
-    "_pbvalidate": attr.label(
+    "pbvalidate": attr.label(
       default = Label("//:pbvalidate"),
       executable = True,
       cfg = "host",

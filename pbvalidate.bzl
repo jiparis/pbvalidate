@@ -1,6 +1,6 @@
 def _impl(ctx):
   script = "%s -f %s -m %s -I /,.,vendor/github.com/googleapis/googleapis %s" % (
-    ctx.files._pbvalidate[0].short_path,
+    ctx.files.pbvalidate[0].short_path,
     ctx.files.proto[0].short_path,
     ctx.attr.message,
     ctx.files.src[0].short_path,

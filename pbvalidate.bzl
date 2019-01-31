@@ -35,7 +35,7 @@ pbvalidate_test = rule(
 
     # validation tool
     "_pbvalidate": attr.label(
-      default = Label("//dev/pbvalidate"),
+      default = Label("//:pbvalidate"),
       executable = True,
       cfg = "host",
     ),

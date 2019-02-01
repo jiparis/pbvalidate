@@ -1,4 +1,4 @@
-workflow "Publish container" {
+workflow "CI" {
   on = "push"
   resolves = ["Test"]
 }

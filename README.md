@@ -1,5 +1,6 @@
 # pbvalidate
 
+[![Build Status](https://travis-ci.com/bitnami-labs/pbvalidate.svg?branch=master)](https://travis-ci.com/bitnami-labs/pbvalidate)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bitnami-labs/pbvalidate)](https://goreportcard.com/report/github.com/bitnami-labs/pbvalidate)
 
 pbvalidate validates pbjson files against a protobuf message

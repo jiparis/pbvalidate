@@ -1,9 +1,9 @@
 workflow "CI" {
   on = "push"
-  resolves = ["Test"]
+  resolves = ["Go Test"]
 }
 
-action "Test" {
+action "Go Test" {
   uses = "./.github/actions/golang"
   args = "test"
 }
